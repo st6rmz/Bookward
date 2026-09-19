@@ -1,0 +1,136 @@
+.dashboard {
+  min-height: 100vh;
+  padding: 4rem;
+  background: #e7e6df;
+  color: #292d28;
+}
+
+.welcome {
+  max-width: 900px;
+  margin: 0 auto 3rem;
+}
+
+.eyebrow {
+  margin: 0 0 0.5rem;
+  color: #65734b;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.welcome h1 {
+  margin: 0;
+  color: #30372b;
+  font-family: Georgia, serif;
+  font-size: 3rem;
+}
+
+.subtitle {
+  color: #60645c;
+  font-size: 1.05rem;
+}
+
+/* Main library container */
+
+.library-card {
+  max-width: 900px;
+  margin: 0 auto 3rem;
+  padding: 2rem;
+
+  background: #f2f1eb;
+  border: 3px solid #514333;
+  border-radius: 14px;
+
+  box-shadow: 0 8px 20px rgba(48, 43, 34, 0.15);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+
+  border-bottom: 2px solid #75634b;
+}
+
+.card-header p {
+  margin: 0;
+  color: #30372b;
+  font-family: Georgia, serif;
+  font-size: 1.5rem;
+}
+
+.card-header span {
+  color: #65734b;
+}
+
+/* Statistics */
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.stat {
+  display: block;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  background: #dfe3d5;
+  border: 1px solid #7a806e;
+  border-radius: 10px;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.stat-number {
+  display: block;
+  color: #3f4d32;
+  font-family: Georgia, serif;
+  font-size: 2.2rem;
+  font-weight: bold;
+}
+
+.stat-label {
+  display: block;
+  margin-top: 0.4rem;
+  color: #55594f;
+}
+
+/* Actions */
+
+.actions {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.actions h2 {
+  color: #30372b;
+  font-family: Georgia, serif;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.action-buttons button {
+  padding: 0.8rem 1.4rem;
+
+  color: #f2f1eb;
+  background: #65734b;
+
+  border: 2px solid #514333;
+  border-radius: 8px;
+
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.action-buttons button:hover {
+  background: #53613d;
+}
