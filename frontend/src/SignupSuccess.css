@@ -1,0 +1,385 @@
+.signup-success-page {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  color: #f7f5ee;
+  font-family: Georgia, "Times New Roman", serif;
+
+  background-image:
+    linear-gradient(
+      rgba(17, 21, 15, 0.68),
+      rgba(17, 21, 15, 0.86)
+    ),
+    var(--background-image);
+
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.signup-success-glow {
+  position: absolute;
+  width: 650px;
+  height: 650px;
+  left: 50%;
+  top: 48%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(213, 172, 102, 0.15),
+    rgba(213, 172, 102, 0.04) 45%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.signup-success-header {
+  position: relative;
+  z-index: 2;
+  padding: 1.4rem 3rem;
+  display: flex;
+  align-items: center;
+  background: rgba(25, 30, 21, 0.35);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.signup-success-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  color: #f7f5ee;
+  text-decoration: none;
+  font-size: 1.3rem;
+  font-weight: bold;
+  letter-spacing: 0.03em;
+}
+
+.signup-success-brand-icon {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.09);
+  border: 1px solid rgba(255, 255, 255, 0.13);
+}
+
+.signup-success-content {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1.25rem;
+}
+
+.signup-success-card {
+  width: min(520px, 100%);
+  box-sizing: border-box;
+  padding: 2.7rem;
+  text-align: center;
+
+  background: linear-gradient(
+    145deg,
+    rgba(47, 52, 39, 0.84),
+    rgba(25, 30, 23, 0.88)
+  );
+
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 20px;
+
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.success-envelope {
+  position: relative;
+  width: 68px;
+  height: 68px;
+  margin: 0 auto 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  border-radius: 20px;
+  background: rgba(101, 115, 75, 0.38);
+  border: 1px solid rgba(214, 201, 149, 0.25);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.success-envelope-sparkle {
+  position: absolute;
+  top: -7px;
+  right: -5px;
+  color: #d6c995;
+  font-size: 1rem;
+}
+
+.success-eyebrow {
+  margin: 0 0 0.75rem;
+  color: #d7c995;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+}
+
+.signup-success-card h1 {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 2.65rem);
+  line-height: 1.12;
+  font-weight: normal;
+  letter-spacing: -0.025em;
+}
+
+.signup-success-card h1 span {
+  display: block;
+  color: #d6c995;
+  font-style: italic;
+}
+
+.success-description {
+  max-width: 400px;
+  margin: 1.2rem auto 1.6rem;
+  color: rgba(247, 245, 238, 0.68);
+  font-size: 0.9rem;
+  line-height: 1.75;
+}
+
+.success-email-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(214, 201, 149, 0.2);
+  border-radius: 12px;
+  background: rgba(8, 12, 8, 0.3);
+  overflow-wrap: anywhere;
+}
+
+.success-email-label {
+  color: rgba(247, 245, 238, 0.48);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+}
+
+.success-email-address {
+  color: #e4d8ac;
+  font-size: 0.9rem;
+}
+
+.success-instructions {
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr);
+  align-items: start;
+  gap: 1rem 0.8rem;
+  text-align: left;
+  margin: 1.6rem 0;
+}
+
+.success-step-icon {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: #e8dfbc;
+  background: rgba(101, 115, 75, 0.48);
+  border: 1px solid rgba(214, 201, 149, 0.24);
+  font-size: 0.75rem;
+}
+
+.success-instructions p {
+  margin: 0;
+  padding-top: 0.2rem;
+  color: rgba(247, 245, 238, 0.78);
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+
+.success-spam-note {
+  margin: 1.2rem 0;
+  color: rgba(247, 245, 238, 0.5);
+  font-size: 0.76rem;
+  line-height: 1.6;
+}
+
+.success-message {
+  margin: 1rem 0;
+  padding: 0.8rem;
+  border-radius: 9px;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.success-message.success {
+  color: #dce8ca;
+  background: rgba(101, 115, 75, 0.25);
+  border: 1px solid rgba(160, 187, 125, 0.3);
+}
+
+.success-message.error {
+  color: #f0c5b6;
+  background: rgba(100, 48, 37, 0.3);
+  border: 1px solid rgba(220, 150, 125, 0.3);
+}
+
+.success-resend-button {
+  display: block;
+  width: 100%;
+  padding: 0.8rem;
+  margin: 0.8rem 0;
+  color: #d7c995;
+  font-family: inherit;
+  font-size: 0.82rem;
+  background: transparent;
+  border: 1px solid rgba(214, 201, 149, 0.3);
+  border-radius: 9px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.success-resend-button:hover:not(:disabled) {
+  background: rgba(214, 201, 149, 0.08);
+}
+
+.success-resend-button:disabled {
+  opacity: 0.55;
+  cursor: wait;
+}
+
+.success-login-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  width: 100%;
+  min-height: 48px;
+  box-sizing: border-box;
+  margin-top: 1rem;
+  color: #f7f5ee;
+  background: #65734b;
+  border: 1px solid #7e8e60;
+  border-radius: 9px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.success-login-button:hover {
+  background: #748359;
+  transform: translateY(-1px);
+}
+
+.success-back-link {
+  display: inline-block;
+  margin-top: 1.3rem;
+  color: rgba(247, 245, 238, 0.55);
+  font-size: 0.78rem;
+  text-decoration: none;
+}
+
+.success-back-link:hover {
+  color: #d7c995;
+}
+
+.signup-success-footer {
+  position: relative;
+  z-index: 1;
+  padding: 1.2rem;
+  text-align: center;
+  color: rgba(247, 245, 238, 0.4);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+}
+
+.signup-success-particles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.success-particle {
+  position: absolute;
+  opacity: 0.3;
+  animation: successFloat 8s ease-in-out infinite;
+}
+
+.success-particle-one {
+  top: 20%;
+  left: 12%;
+}
+
+.success-particle-two {
+  top: 28%;
+  right: 15%;
+  animation-delay: 2s;
+}
+
+.success-particle-three {
+  bottom: 22%;
+  left: 18%;
+  animation-delay: 3s;
+}
+
+.success-particle-four {
+  bottom: 25%;
+  right: 12%;
+  animation-delay: 1s;
+}
+
+@keyframes successFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-18px) rotate(8deg);
+  }
+}
+
+@media (max-width: 600px) {
+  .signup-success-header {
+    padding: 1rem 1.2rem;
+  }
+
+  .signup-success-content {
+    padding: 2rem 1rem;
+  }
+
+  .signup-success-card {
+    padding: 2rem 1.3rem;
+  }
+
+  .signup-success-page {
+    background-attachment: scroll;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .success-particle {
+    animation: none;
+  }
+
+  .success-login-button,
+  .success-resend-button {
+    transition: none;
+  }
+}

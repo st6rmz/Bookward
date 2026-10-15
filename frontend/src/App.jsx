@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LandingPage from "./LandingPage";
 import Signup from "./Signup";
 import Login from "./Login";
+import SignupSuccess from "./SignupSuccess";
 import Dashboard from "./Dashboard";
 import MyBooks from "./MyBooks";
 import AddBook from "./AddBook"
@@ -17,6 +18,7 @@ function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path="signup" element={<Signup />} />
         <Route path="login" element={<Login />} />
+        <Route path="signup-success" element={<SignupSuccess />} />
 
 
 

@@ -1,5 +1,5 @@
 import "./Signup.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { supabase } from "./supabase";
 
@@ -8,29 +8,60 @@ import summerBackground from "./assets/summer-background.jpg";
 
 function Signup() {
 
-  const [userName, setuserName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+const navigate = useNavigate();
+
+const [userName, setuserName] = useState("");
+const [email, setEmail] = useState("");
+const [password, setPassword] = useState("");
+const [errorMessage, setErrorMessage] = useState("");
+const [isLoading, setIsLoading] = useState(false);
 
 
 
   async function handleSignup(event) {
   event.preventDefault();
 
-  const { data, error } = await supabase.auth.signUp({
-  email: email,
-  password: password,
-  options: {
-    data: {
-      user_name: userName.trim(),
-    },
-  },
-});
+  setErrorMessage("");
+  setIsLoading(true);
 
-  if (error) {
-    console.error(error);
-    return;
+  try {
+    const { data, error } = await supabase.auth.signUp({
+      email: email.trim(),
+      password,
+      options: {
+        data: {
+          user_name: userName.trim(),
+        },
+      },
+    });
+
+    if (error) {
+      setErrorMessage(error.message);
+      return;
+    }
+
+    if (!data.user) {
+      setErrorMessage(
+        "We couldn't create your account. Please try again."
+      );
+      return;
+    }
+
+    navigate("/signup-success", {
+      state: {
+        email: email.trim(),
+      },
+    });
+  } catch (error) {
+    console.error("Signup error:", error);
+
+    setErrorMessage(
+      "Something went wrong. Please try again."
+    );
+  } finally {
+    setIsLoading(false);
   }
+}
 
   
 
@@ -111,6 +142,7 @@ function Signup() {
                 placeholder="What should we call you?"
                 value={userName}
                 onChange={(event) => setuserName(event.target.value)}
+                required
               />
             </div>
 
@@ -125,6 +157,7 @@ function Signup() {
                 placeholder="you@example.com"
                 value={email}
                 onChange={(event) => setEmail(event.target.value)}
+                required
               />
             </div>
 
@@ -139,6 +172,7 @@ function Signup() {
                 placeholder="Create a password"
                 value={password}
                 onChange={(event) => setPassword(event.target.value)}
+                required
               />
             </div>
 
@@ -147,13 +181,19 @@ function Signup() {
               Your account will keep your library private.
             </div>
 
-            <button
-              type="submit"
-              className="signup-submit"
-            >
-              Create My Library
-              <span>→</span>
-            </button>
+            {errorMessage && (
+          <div className="login-error" role="alert">
+            {errorMessage}
+          </div>
+           )}
+           <button
+            type="submit"
+            className="signup-submit"
+            disabled={isLoading}
+           >
+            {isLoading ? "Creating your library..." : "Create My Library"}
+            {!isLoading && <span>→</span>}
+           </button>
 
           </form>
 
@@ -177,6 +217,6 @@ function Signup() {
     </div>
   );
 }
-}
+
 
 export default Signup;
