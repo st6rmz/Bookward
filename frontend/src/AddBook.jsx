@@ -8,6 +8,7 @@ function AddBook() {
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const [addingBookIndex, setAddingBookIndex] = useState(null); // Fixed: Track the specific index
 
   const messageTimer = useRef(null);
@@ -56,27 +57,45 @@ function AddBook() {
 
     const token = data.session.access_token;
 
+    
     try {
-      const response = await fetch("https://bookward-backend.onrender.com/books", {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-        body: formData,
-      });
+      setErrorMessage("");
+      setSuccessMessage("");
 
-      if (!response.ok) throw new Error("Failed to add book");
+      const response = await fetch(
+        "https://bookward-backend.onrender.com/books",
+        {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+          body: formData,
+        }
+      );
+
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => null);
+
+        throw new Error(
+          errorData?.detail || "Could not add the book. Please try again."
+        );
+      }
 
       setSuccessMessage("Book added successfully!");
+
       clearTimeout(messageTimer.current);
-      messageTimer.current = setTimeout(() => setSuccessMessage(""), 3000);
+
+      messageTimer.current = setTimeout(() => {
+        setSuccessMessage("");
+      }, 3000);
+
     } catch (error) {
       console.error("Failed to add book:", error);
-      alert("Could not add the book. Please try again.");
+      setErrorMessage(error.message);
     } finally {
       setAddingBookIndex(null);
     }
-  }
+
 
   async function handleSubmit(event) {
   event.preventDefault();
@@ -117,9 +136,13 @@ function AddBook() {
     });
 
     if (!response.ok) {
-      throw new Error("Failed to add book");
-    }
+    const errorData = await response.json().catch(() => null);
 
+    throw new Error(
+    errorData?.detail || "Could not add the book. Please try again."
+  );
+}
+    setErrorMessage("");
     setSuccessMessage("Book added successfully!");
 
     clearTimeout(messageTimer.current);
@@ -131,19 +154,31 @@ function AddBook() {
     event.target.reset();
 
   } catch (err) {
-    console.error("Failed to add book:", err);
-    alert("Could not add the book. Please try again.");
-  }
+  console.error("Failed to add book:", err);
+  setErrorMessage(err.message);
+ }
 }
 
   return (
-    <div className="add-book">
-      {successMessage && (
-        <div className="success-message">
-          <span>✓</span>
-          {successMessage}
-        </div>
-      )}
+    
+<div className="add-book">
+  {successMessage && (
+    <div className="success-message">
+      <span>✓</span>
+      {successMessage}
+    </div>
+  )}
+
+  {errorMessage && (
+    <div className="book-limit-error" role="alert">
+      <span>📚</span>
+      <div>
+        <strong>Your library needs a little room</strong>
+        <p>{errorMessage}</p>
+      </div>
+    </div>
+  )}
+
 
       <header className="books-header">
         <p className="eyebrow">Your Library</p>
@@ -226,5 +261,5 @@ function AddBook() {
     </div>
   );
 }
-
+}
 export default AddBook;
