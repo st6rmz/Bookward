@@ -1,136 +1,1259 @@
+/* =====================================================
+   DASHBOARD
+   ===================================================== */
+
 .dashboard {
+  --text-main: #f7f5ee;
+  --text-soft: rgba(247, 245, 238, 0.65);
+
+  --panel: rgba(30, 36, 27, 0.48);
+  --panel-light: rgba(40, 47, 35, 0.58);
+
+  --sidebar: rgba(25, 31, 22, 0.72);
+
+  --border: rgba(255, 255, 255, 0.13);
+
+  --accent: #d6c995;
+
   min-height: 100vh;
-  padding: 4rem;
-  background: #e7e6df;
-  color: #292d28;
+
+  position: relative;
+
+  overflow: hidden;
+
+  display: flex;
+
+  color: var(--text-main);
+
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(19, 24, 17, 0.55),
+      rgba(19, 24, 17, 0.25) 55%,
+      rgba(19, 24, 17, 0.35)
+    ),
+    var(--background-image);
+
+  background-size: cover;
+
+  background-position: center;
+
+  background-attachment: fixed;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  transition:
+    background-image 0.8s ease,
+    color 0.4s ease;
 }
 
+
+/* =====================================================
+   WARM ATMOSPHERIC GLOW
+   ===================================================== */
+
+.dashboard::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at 50% 30%,
+      rgba(255, 214, 145, 0.08),
+      transparent 45%
+    );
+
+  pointer-events: none;
+
+  z-index: 0;
+}
+
+
+/* =====================================================
+   SIDEBAR
+   ===================================================== */
+
+.sidebar {
+  width: 300px;
+
+  min-height: 100vh;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  padding: 2rem 1.2rem;
+
+  background: var(--sidebar);
+
+  border-right: 1px solid var(--border);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  z-index: 10;
+
+  transition:
+    background 0.8s ease,
+    border-color 0.5s ease;
+}
+
+
+/* =====================================================
+   BRAND
+   ===================================================== */
+
+.brand {
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.8rem;
+
+  padding: 0.5rem 0.8rem 2rem;
+
+  font-size: 1.7rem;
+
+  font-weight: bold;
+
+  letter-spacing: 0.02em;
+}
+
+.brand-icon {
+  width: 42px;
+
+  height: 42px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 12px;
+
+  background: rgba(255, 255, 255, 0.10);
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  box-shadow:
+    0 6px 20px rgba(0, 0, 0, 0.25);
+
+  font-size: 1.9rem;
+}
+
+
+/* =====================================================
+   NAVIGATION
+   ===================================================== */
+
+.navigation {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 0.5rem;
+}
+
+.nav-link,
+.settings-button {
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.8rem;
+
+  padding: 0.85rem 1rem;
+
+  border: 1px solid transparent;
+
+  border-radius: 10px;
+
+  color: rgba(247, 245, 238, 0.85);
+
+  text-decoration: none;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 1rem;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    border 0.25s ease,
+    transform 0.25s ease;
+}
+
+.nav-link span,
+.settings-button span {
+  width: 25px;
+
+  text-align: center;
+
+  font-size: 1.2rem;
+}
+
+.nav-link:hover,
+.settings-button:hover {
+  background: rgba(255, 255, 255, 0.08);
+
+  border-color: rgba(255, 255, 255, 0.12);
+
+  transform: translateX(3px);
+}
+
+.nav-link.active {
+  background: color-mix(in srgb, var(--accent) 30%, transparent);
+  border-color: color-mix(in srgb, var(--accent) 55%, transparent);
+  color: var(--accent);
+}
+
+.sidebar-bottom {
+  margin-top: auto;
+}
+
+
+/* =====================================================
+   MAIN CONTENT
+   ===================================================== */
+
+.dashboard-content {
+  width: min(950px, calc(100% - 2rem));
+
+  margin: 0 auto;
+
+  padding: 4rem 2rem 5rem;
+
+  position: relative;
+
+  z-index: 2;
+}
+
+
+/* =====================================================
+   WELCOME
+   ===================================================== */
+
 .welcome {
-  max-width: 900px;
-  margin: 0 auto 3rem;
+  margin-bottom: 2rem;
+
+  padding: 1.5rem 1.7rem;
+
+  background: rgba(30, 36, 27, 0.48);
+
+  border: 1px solid rgba(255, 255, 255, 0.13);
+
+  border-radius: 14px;
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  box-shadow:
+    0 10px 35px rgba(0, 0, 0, 0.25);
 }
 
 .eyebrow {
-  margin: 0 0 0.5rem;
-  color: #65734b;
-  font-size: 0.9rem;
-  letter-spacing: 0.08em;
+  margin: 0 0 0.4rem;
+
+  color: var(--accent);
+
+  font-size: 0.85rem;
+
+  font-weight: bold;
+
+  letter-spacing: 0.12em;
+
   text-transform: uppercase;
+
+  text-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.7);
 }
 
 .welcome h1 {
   margin: 0;
-  color: #30372b;
-  font-family: Georgia, serif;
-  font-size: 3rem;
+
+  color: #f7f5ee;
+
+  font-size: clamp(2.5rem, 5vw, 4rem);
+
+  line-height: 1.05;
+
+  font-weight: normal;
+
+  letter-spacing: -0.03em;
+
+  text-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.45);
 }
 
 .subtitle {
-  color: #60645c;
+  margin-top: 0.8rem;
+
+  color: rgba(247, 245, 238, 0.82);
+
   font-size: 1.05rem;
+
+  line-height: 1.7;
+
+  text-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.7);
 }
 
-/* Main library container */
 
-.library-card {
-  max-width: 900px;
-  margin: 0 auto 3rem;
-  padding: 2rem;
+/* =====================================================
+   SHARED GLASS CARDS
+   ===================================================== */
 
-  background: #f2f1eb;
-  border: 3px solid #514333;
+.library-card,
+.actions,
+.theme-section {
+  margin-bottom: 1.3rem;
+
+  padding: 1.5rem;
+
+  background: rgba(30, 36, 27, 0.48);
+
+  border: 1px solid rgba(255, 255, 255, 0.13);
+
   border-radius: 14px;
 
-  box-shadow: 0 8px 20px rgba(48, 43, 34, 0.15);
+  box-shadow:
+    0 10px 35px rgba(0, 0, 0, 0.25);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  transition:
+    background 0.8s ease,
+    border-color 0.5s ease,
+    box-shadow 0.5s ease;
 }
 
-.card-header {
+
+/* =====================================================
+   SECTION HEADINGS
+   ===================================================== */
+
+.card-header,
+.section-heading {
   display: flex;
+
   justify-content: space-between;
+
   align-items: center;
 
-  margin-bottom: 2rem;
-  padding-bottom: 1rem;
-
-  border-bottom: 2px solid #75634b;
+  margin-bottom: 1.3rem;
 }
 
-.card-header p {
+.section-title {
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.7rem;
+}
+
+.section-title h2,
+.section-heading h2 {
   margin: 0;
-  color: #30372b;
-  font-family: Georgia, serif;
+
+  font-size: 1.35rem;
+
+  font-weight: normal;
+}
+
+.section-heading p {
+  margin: 0.25rem 0 0;
+
+  color: var(--text-soft);
+
+  font-family: Arial, sans-serif;
+
+  font-size: 0.85rem;
+}
+
+.section-icon {
+  font-size: 1.4rem;
+}
+
+.sparkle {
+  color: var(--accent);
+
   font-size: 1.5rem;
 }
 
-.card-header span {
-  color: #65734b;
-}
 
-/* Statistics */
+/* =====================================================
+   STATS
+   ===================================================== */
 
 .stats {
   display: grid;
+
   grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
+
+  gap: 0.7rem;
 }
 
 .stat {
-  display: block;
-  padding: 1.5rem 1rem;
-  text-align: center;
-  background: #dfe3d5;
-  border: 1px solid #7a806e;
-  border-radius: 10px;
+  position: relative;
+
+  min-height: 140px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: center;
+
+  padding: 1rem;
+
+  color: var(--text-main);
+
   text-decoration: none;
-  color: inherit;
-  cursor: pointer;
+
+  background: rgba(255, 255, 255, 0.045);
+
+  border: 1px solid rgba(255, 255, 255, 0.11);
+
+  border-radius: 12px;
+
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    border 0.25s ease;
+}
+
+.stat:hover {
+  transform: translateY(-4px);
+
+  background: rgba(101, 115, 75, 0.22);
+
+  border-color: rgba(214, 201, 149, 0.35);
+}
+
+.stat-icon {
+  margin-bottom: 0.3rem;
+
+  color: var(--accent);
+
+  font-size: 1.5rem;
 }
 
 .stat-number {
-  display: block;
-  color: #3f4d32;
-  font-family: Georgia, serif;
-  font-size: 2.2rem;
+  font-size: 2.4rem;
+
   font-weight: bold;
+
+  line-height: 1;
 }
 
 .stat-label {
-  display: block;
   margin-top: 0.4rem;
-  color: #55594f;
+
+  color: var(--text-soft);
+
+  font-family: Arial, sans-serif;
+
+  font-size: 0.8rem;
 }
 
-/* Actions */
+.stat-arrow {
+  position: absolute;
 
-.actions {
-  max-width: 900px;
-  margin: 0 auto;
+  bottom: 0.7rem;
+
+  color: var(--accent);
+
+  opacity: 0;
+
+  transform: translateX(-5px);
+
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
 }
 
-.actions h2 {
-  color: #30372b;
-  font-family: Georgia, serif;
+.stat:hover .stat-arrow {
+  opacity: 1;
+
+  transform: translateX(0);
 }
+
+
+/* =====================================================
+   ACTION BUTTONS
+   ===================================================== */
 
 .action-buttons {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 0.7rem;
 }
 
-.action-buttons button {
-  padding: 0.8rem 1.4rem;
+.action-button {
+  min-height: 60px;
 
-  color: #f2f1eb;
-  background: #65734b;
+  display: flex;
 
-  border: 2px solid #514333;
-  border-radius: 8px;
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 0.5rem;
+
+  border-radius: 10px;
+
+  border: 1px solid rgba(255, 255, 255, 0.16);
+
+  color: #f7f5ee;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 0.9rem;
+
+  text-decoration: none;
 
   cursor: pointer;
-  font-size: 0.95rem;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease,
+    filter 0.25s ease;
 }
 
-.action-buttons button:hover {
-  background: #53613d;
+.action-button:hover {
+  transform: translateY(-3px);
+
+  filter: brightness(1.1);
+}
+
+.action-button.add {
+  background: rgba(101, 115, 75, 0.65);
+
+  border-color: rgba(214, 201, 149, 0.35);
+}
+
+.action-button.edit {
+  background: rgba(255, 255, 255, 0.10);
+}
+
+.action-button.remove {
+  background: rgba(133, 56, 49, 0.55);
+
+  border-color: rgba(235, 110, 100, 0.35);
+}
+
+.action-button.view {
+  background: rgba(42, 100, 143, 0.50);
+
+  border-color: rgba(90, 170, 225, 0.35);
+}
+
+.action-icon {
+  font-size: 1.3rem;
+}
+
+
+/* =====================================================
+   SEASONAL THEMES
+   ===================================================== */
+
+.theme-summer {
+  --panel: rgba(30, 36, 27, 0.48);
+  --panel-light: rgba(40, 47, 35, 0.58);
+  --sidebar: rgba(25, 31, 22, 0.72);
+  --border: rgba(255, 255, 255, 0.13);
+  --accent: #d6c995;
+}
+
+.theme-autumn {
+  --panel: rgba(55, 37, 27, 0.50);
+  --panel-light: rgba(75, 48, 31, 0.58);
+  --sidebar: rgba(42, 29, 21, 0.76);
+  --border: rgba(238, 177, 105, 0.25);
+  --accent: #e0b276;
+}
+
+.theme-spring {
+  --panel: rgba(42, 48, 39, 0.48);
+  --panel-light: rgba(65, 71, 56, 0.56);
+  --sidebar: rgba(29, 36, 30, 0.74);
+  --border: rgba(240, 194, 210, 0.25);
+  --accent: #e4bdca;
+}
+
+.theme-winter {
+  --panel: rgba(25, 38, 55, 0.50);
+  --panel-light: rgba(37, 55, 76, 0.58);
+  --sidebar: rgba(18, 29, 43, 0.76);
+  --border: rgba(175, 212, 242, 0.25);
+  --accent: #b9d8ef;
+}
+
+
+/* =====================================================
+   THEME CARDS
+   ===================================================== */
+
+.theme-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 0.8rem;
+}
+
+.theme-card {
+  padding: 0;
+
+  overflow: hidden;
+
+  color: white;
+
+  background: rgba(255, 255, 255, 0.04);
+
+  border: 1px solid rgba(255, 255, 255, 0.13);
+
+  border-radius: 12px;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    border 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.theme-card:hover {
+  transform: translateY(-4px);
+
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.theme-card.selected {
+  border-color: var(--accent);
+
+  box-shadow:
+    0 0 0 2px rgba(214, 201, 149, 0.12),
+    0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+.theme-preview {
+  height: 95px;
+
+  background-size: cover;
+
+  background-position: center;
+
+  display: flex;
+
+  align-items: flex-end;
+
+  justify-content: center;
+
+  padding-bottom: 0.5rem;
+
+  font-size: 1.5rem;
+
+  position: relative;
+}
+
+.theme-preview::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      transparent 35%,
+      rgba(0, 0, 0, 0.35)
+    );
+}
+
+.theme-preview span {
+  position: relative;
+
+  z-index: 1;
+}
+
+.theme-name {
+  padding: 0.7rem;
+
+  font-size: 0.9rem;
+}
+
+
+/* =====================================================
+   ANIMATED SEASONAL PARTICLES
+   ===================================================== */
+
+.particle-container {
+  position: absolute;
+
+  inset: 0;
+
+  overflow: hidden;
+
+  pointer-events: none;
+
+  z-index: 1;
+}
+
+.particle {
+  position: absolute;
+
+  top: -50px;
+
+  font-size: 1.4rem;
+
+  opacity: 0.7;
+}
+
+
+/* =====================================================
+   PARTICLE POSITIONS
+   ===================================================== */
+
+.particle-1 {
+  left: 8%;
+}
+
+.particle-2 {
+  left: 18%;
+}
+
+.particle-3 {
+  left: 30%;
+}
+
+.particle-4 {
+  left: 42%;
+}
+
+.particle-5 {
+  left: 54%;
+}
+
+.particle-6 {
+  left: 66%;
+}
+
+.particle-7 {
+  left: 75%;
+}
+
+.particle-8 {
+  left: 86%;
+}
+
+.particle-9 {
+  left: 36%;
+}
+
+.particle-10 {
+  left: 62%;
+}
+
+
+/* =====================================================
+   SUMMER PARTICLES
+   Gentle green leaves
+   ===================================================== */
+
+.particle-summer .particle {
+  animation: summer-leaf 12s linear infinite;
+}
+
+.particle-summer .particle:nth-child(1) {
+  animation-duration: 11s;
+}
+
+.particle-summer .particle:nth-child(2) {
+  animation-duration: 14s;
+  animation-delay: 3s;
+}
+
+.particle-summer .particle:nth-child(3) {
+  animation-duration: 10s;
+  animation-delay: 1s;
+}
+
+.particle-summer .particle:nth-child(4) {
+  animation-duration: 15s;
+  animation-delay: 5s;
+}
+
+.particle-summer .particle:nth-child(5) {
+  animation-duration: 12s;
+  animation-delay: 2s;
+}
+
+.particle-summer .particle:nth-child(6) {
+  animation-duration: 17s;
+  animation-delay: 4s;
+}
+
+.particle-summer .particle:nth-child(7) {
+  animation-duration: 13s;
+  animation-delay: 7s;
+}
+
+.particle-summer .particle:nth-child(8) {
+  animation-duration: 16s;
+  animation-delay: 2s;
+}
+
+.particle-summer .particle:nth-child(9) {
+  animation-duration: 18s;
+  animation-delay: 6s;
+}
+
+.particle-summer .particle:nth-child(10) {
+  animation-duration: 14s;
+  animation-delay: 9s;
+}
+
+@keyframes summer-leaf {
+  0% {
+    transform:
+      translate3d(0, -50px, 0)
+      rotate(0deg);
+  }
+
+  25% {
+    transform:
+      translate3d(45px, 25vh, 0)
+      rotate(45deg);
+  }
+
+  50% {
+    transform:
+      translate3d(-35px, 50vh, 0)
+      rotate(90deg);
+  }
+
+  75% {
+    transform:
+      translate3d(55px, 75vh, 0)
+      rotate(135deg);
+  }
+
+  100% {
+    transform:
+      translate3d(-20px, 110vh, 0)
+      rotate(180deg);
+  }
+}
+
+
+/* =====================================================
+   AUTUMN PARTICLES
+   Dramatic tumbling leaves
+   ===================================================== */
+
+.particle-autumn .particle {
+  animation: autumn-leaf 10s linear infinite;
+
+  opacity: 0.8;
+}
+
+.particle-autumn .particle:nth-child(1) {
+  animation-duration: 9s;
+}
+
+.particle-autumn .particle:nth-child(2) {
+  animation-duration: 12s;
+  animation-delay: 2s;
+}
+
+.particle-autumn .particle:nth-child(3) {
+  animation-duration: 10s;
+  animation-delay: 4s;
+}
+
+.particle-autumn .particle:nth-child(4) {
+  animation-duration: 14s;
+  animation-delay: 1s;
+}
+
+.particle-autumn .particle:nth-child(5) {
+  animation-duration: 11s;
+  animation-delay: 5s;
+}
+
+.particle-autumn .particle:nth-child(6) {
+  animation-duration: 13s;
+  animation-delay: 3s;
+}
+
+.particle-autumn .particle:nth-child(7) {
+  animation-duration: 10s;
+  animation-delay: 7s;
+}
+
+.particle-autumn .particle:nth-child(8) {
+  animation-duration: 15s;
+  animation-delay: 2s;
+}
+
+.particle-autumn .particle:nth-child(9) {
+  animation-duration: 12s;
+  animation-delay: 6s;
+}
+
+.particle-autumn .particle:nth-child(10) {
+  animation-duration: 14s;
+  animation-delay: 8s;
+}
+
+@keyframes autumn-leaf {
+  0% {
+    transform:
+      translate3d(0, -50px, 0)
+      rotate(0deg);
+  }
+
+  20% {
+    transform:
+      translate3d(-80px, 20vh, 0)
+      rotate(100deg);
+  }
+
+  40% {
+    transform:
+      translate3d(70px, 40vh, 0)
+      rotate(220deg);
+  }
+
+  60% {
+    transform:
+      translate3d(-100px, 60vh, 0)
+      rotate(320deg);
+  }
+
+  80% {
+    transform:
+      translate3d(60px, 80vh, 0)
+      rotate(450deg);
+  }
+
+  100% {
+    transform:
+      translate3d(-30px, 110vh, 0)
+      rotate(540deg);
+  }
+}
+
+
+/* =====================================================
+   SPRING PARTICLES
+   Soft Sakura petals
+   ===================================================== */
+
+.particle-spring .particle {
+  animation: spring-petal 13s ease-in-out infinite;
+
+  opacity: 0.75;
+
+  font-size: 1.25rem;
+}
+
+.particle-spring .particle:nth-child(1) {
+  animation-duration: 12s;
+}
+
+.particle-spring .particle:nth-child(2) {
+  animation-duration: 15s;
+  animation-delay: 3s;
+}
+
+.particle-spring .particle:nth-child(3) {
+  animation-duration: 11s;
+  animation-delay: 1s;
+}
+
+.particle-spring .particle:nth-child(4) {
+  animation-duration: 16s;
+  animation-delay: 5s;
+}
+
+.particle-spring .particle:nth-child(5) {
+  animation-duration: 13s;
+  animation-delay: 2s;
+}
+
+.particle-spring .particle:nth-child(6) {
+  animation-duration: 17s;
+  animation-delay: 4s;
+}
+
+.particle-spring .particle:nth-child(7) {
+  animation-duration: 14s;
+  animation-delay: 7s;
+}
+
+.particle-spring .particle:nth-child(8) {
+  animation-duration: 18s;
+  animation-delay: 2s;
+}
+
+.particle-spring .particle:nth-child(9) {
+  animation-duration: 15s;
+  animation-delay: 6s;
+}
+
+.particle-spring .particle:nth-child(10) {
+  animation-duration: 16s;
+  animation-delay: 9s;
+}
+
+@keyframes spring-petal {
+  0% {
+    transform:
+      translate3d(0, -50px, 0)
+      rotate(0deg);
+  }
+
+  20% {
+    transform:
+      translate3d(70px, 20vh, 0)
+      rotate(60deg);
+  }
+
+  40% {
+    transform:
+      translate3d(-50px, 40vh, 0)
+      rotate(130deg);
+  }
+
+  60% {
+    transform:
+      translate3d(80px, 60vh, 0)
+      rotate(200deg);
+  }
+
+  80% {
+    transform:
+      translate3d(-40px, 80vh, 0)
+      rotate(270deg);
+  }
+
+  100% {
+    transform:
+      translate3d(30px, 110vh, 0)
+      rotate(360deg);
+  }
+}
+
+
+/* =====================================================
+   WINTER PARTICLES
+   Gentle drifting snow
+   ===================================================== */
+
+.particle-winter .particle {
+  animation: winter-snow 15s ease-in-out infinite;
+
+  opacity: 0.7;
+
+  font-size: 1.15rem;
+}
+
+.particle-winter .particle:nth-child(1) {
+  animation-duration: 14s;
+}
+
+.particle-winter .particle:nth-child(2) {
+  animation-duration: 18s;
+  animation-delay: 3s;
+}
+
+.particle-winter .particle:nth-child(3) {
+  animation-duration: 16s;
+  animation-delay: 1s;
+}
+
+.particle-winter .particle:nth-child(4) {
+  animation-duration: 20s;
+  animation-delay: 5s;
+}
+
+.particle-winter .particle:nth-child(5) {
+  animation-duration: 17s;
+  animation-delay: 2s;
+}
+
+.particle-winter .particle:nth-child(6) {
+  animation-duration: 21s;
+  animation-delay: 4s;
+}
+
+.particle-winter .particle:nth-child(7) {
+  animation-duration: 15s;
+  animation-delay: 7s;
+}
+
+.particle-winter .particle:nth-child(8) {
+  animation-duration: 19s;
+  animation-delay: 2s;
+}
+
+.particle-winter .particle:nth-child(9) {
+  animation-duration: 22s;
+  animation-delay: 6s;
+}
+
+.particle-winter .particle:nth-child(10) {
+  animation-duration: 18s;
+  animation-delay: 9s;
+}
+
+@keyframes winter-snow {
+  0% {
+    transform:
+      translate3d(0, -50px, 0)
+      rotate(0deg);
+  }
+
+  25% {
+    transform:
+      translate3d(35px, 25vh, 0)
+      rotate(45deg);
+  }
+
+  50% {
+    transform:
+      translate3d(-30px, 50vh, 0)
+      rotate(90deg);
+  }
+
+  75% {
+    transform:
+      translate3d(40px, 75vh, 0)
+      rotate(135deg);
+  }
+
+  100% {
+    transform:
+      translate3d(-20px, 110vh, 0)
+      rotate(180deg);
+  }
+}
+
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+
+@media (max-width: 1000px) {
+  .sidebar {
+    width: 190px;
+  }
+
+  .stats,
+  .action-buttons,
+  .theme-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+@media (max-width: 700px) {
+  .dashboard {
+    display: block;
+
+    background-attachment: scroll;
+  }
+
+  .sidebar {
+    width: auto;
+
+    min-height: auto;
+
+    flex-direction: row;
+
+    align-items: center;
+
+    padding: 0.8rem;
+
+    border-right: none;
+
+    border-bottom: 1px solid var(--border);
+  }
+
+  .brand {
+    padding: 0;
+
+    font-size: 1.2rem;
+  }
+
+  .brand-icon {
+    width: 36px;
+
+    height: 36px;
+
+    font-size: 1.3rem;
+  }
+
+  .navigation {
+    flex-direction: row;
+
+    margin-left: auto;
+  }
+
+  .nav-link {
+    padding: 0.6rem;
+  }
+
+  .nav-link span {
+    display: none;
+  }
+
+  .sidebar-bottom {
+    display: none;
+  }
+
+  .dashboard-content {
+    width: 100%;
+
+    padding: 2rem 1rem;
+  }
+
+  .stats,
+  .action-buttons,
+  .theme-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .stats,
+  .action-buttons,
+  .theme-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .welcome h1 {
+    font-size: 2.5rem;
+  }
 }

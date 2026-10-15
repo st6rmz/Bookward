@@ -1,0 +1,1012 @@
+/* ========================================
+   Book Details — Seasonal Glass Theme
+   ======================================== */
+
+.book-details {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  padding: 3rem;
+
+  box-sizing: border-box;
+
+  background-image:
+    linear-gradient(
+      rgba(19, 24, 17, 0.58),
+      rgba(19, 24, 17, 0.78)
+    ),
+    var(--background-image);
+
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
+  color: #f7f5ee;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+/* ========================================
+   Warm Ambient Glow
+   ======================================== */
+
+.book-details::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  z-index: -1;
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at 50% 42%,
+      rgba(255, 214, 145, 0.12),
+      transparent 42%
+    );
+}
+
+/* ========================================
+   Main Container
+   ======================================== */
+
+.details-container {
+  position: relative;
+  z-index: 1;
+
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ========================================
+   Back Button
+   ======================================== */
+
+.back-button {
+  display: inline-flex;
+  align-items: center;
+
+  margin-bottom: 1.5rem;
+  padding: 0.8rem 1.2rem;
+
+  color: #f7f5ee;
+  background: rgba(25, 31, 22, 0.45);
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+
+  font-family: Georgia, serif;
+  font-size: 0.95rem;
+
+  text-decoration: none;
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.back-button:hover {
+  color: #ffffff;
+
+  background: rgba(101, 115, 75, 0.75);
+
+  border-color: rgba(214, 201, 149, 0.5);
+
+  transform: translateX(-3px);
+}
+
+/* ========================================
+   Seasonal Theme Selector
+   ======================================== */
+
+.details-theme-selector {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.details-theme-label {
+  color: rgba(247, 245, 238, 0.75);
+
+  font-family: Arial, sans-serif;
+  font-size: 0.85rem;
+}
+
+.details-theme-buttons {
+  display: flex;
+  align-items: center;
+
+  gap: 0.5rem;
+}
+
+.details-theme-button {
+  width: 36px;
+  height: 36px;
+
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #f7f5ee;
+  background: rgba(255, 255, 255, 0.08);
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+
+  font-size: 1rem;
+
+  cursor: pointer;
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.details-theme-button:hover {
+  transform: translateY(-2px);
+
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.details-theme-button.active {
+  background: rgba(101, 115, 75, 0.8);
+
+  border-color: rgba(214, 201, 149, 0.8);
+
+  box-shadow:
+    0 0 0 2px rgba(214, 201, 149, 0.12);
+}
+
+/* ========================================
+   Main Glass Panel
+   ======================================== */
+
+.details-content {
+  display: grid;
+
+  grid-template-columns:
+    minmax(280px, 360px)
+    minmax(0, 1fr);
+
+  align-items: center;
+
+  gap: 3.5rem;
+
+  padding: 2.5rem;
+
+  background: rgba(25, 31, 22, 0.52);
+
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 18px;
+
+  box-shadow:
+    0 25px 65px rgba(0, 0, 0, 0.32);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+/* ========================================
+   Book Cover
+   ======================================== */
+
+.details-cover-container {
+  width: 100%;
+  max-width: 360px;
+
+  aspect-ratio: 2 / 3;
+
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0.8rem;
+
+  background: rgba(255, 255, 255, 0.07);
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 18px 35px rgba(0, 0, 0, 0.3);
+}
+
+.details-cover {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: contain;
+
+  border-radius: 6px;
+
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* ========================================
+   No Cover
+   ======================================== */
+
+.details-no-cover {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  color: #d7cba9;
+
+  background: rgba(255, 255, 255, 0.04);
+
+  border-radius: 8px;
+
+  font-family: Georgia, serif;
+}
+
+.details-no-cover span {
+  font-size: 4rem;
+}
+
+.details-no-cover p {
+  margin-top: 0.8rem;
+
+  color: rgba(247, 245, 238, 0.7);
+
+  font-size: 1rem;
+}
+
+/* ========================================
+   Book Information
+   ======================================== */
+
+.details-info {
+  min-width: 0;
+  padding: 0;
+}
+
+.details-info .eyebrow {
+  margin: 0 0 0.7rem;
+
+  color: #d7cba9;
+
+  font-family: Arial, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.details-info h1 {
+  max-width: 700px;
+
+  margin: 0;
+
+  color: #f7f5ee;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.4rem, 4vw, 3.4rem);
+
+  line-height: 1.1;
+
+  overflow-wrap: anywhere;
+}
+
+.details-info .author {
+  margin: 1rem 0 0;
+
+  color: rgba(247, 245, 238, 0.72);
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.25rem;
+  font-style: italic;
+}
+
+/* ========================================
+   Divider
+   ======================================== */
+
+.detail-divider {
+  width: 100%;
+  height: 1px;
+
+  margin: 2rem 0;
+
+  background: rgba(255, 255, 255, 0.16);
+}
+
+/* ========================================
+   Status
+   ======================================== */
+
+.status-row {
+  display: flex;
+  align-items: center;
+
+  gap: 1rem;
+
+  color: rgba(247, 245, 238, 0.75);
+
+  font-family: Arial, sans-serif;
+  font-size: 0.95rem;
+}
+
+.book-status {
+  padding: 0.45rem 0.9rem;
+
+  color: #e8eddc;
+
+  background: rgba(101, 115, 75, 0.65);
+
+  border: 1px solid rgba(214, 201, 149, 0.22);
+  border-radius: 20px;
+
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* ========================================
+   Notes
+   ======================================== */
+
+.notes-section {
+  margin-top: 2rem;
+
+  padding: 1.4rem 1.5rem;
+
+  background: rgba(255, 255, 255, 0.06);
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-left: 3px solid #82946a;
+  border-radius: 10px;
+
+  box-shadow: none;
+}
+
+.notes-section h2 {
+  margin: 0 0 0.6rem;
+
+  color: #e5d9b9;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.35rem;
+}
+
+.notes-section p {
+  margin: 0;
+
+  color: rgba(247, 245, 238, 0.82);
+
+  font-family: Arial, sans-serif;
+  font-size: 0.95rem;
+
+  line-height: 1.7;
+}
+
+/* ========================================
+   Reading Progress
+   ======================================== */
+
+.reading-progress {
+  margin: 0 0 1.5rem;
+
+  padding: 1rem 1.1rem;
+
+  background: rgba(255, 255, 255, 0.06);
+
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 12px;
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.reading-progress-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 1rem;
+
+  margin-bottom: 0.75rem;
+}
+
+.reading-progress-header h2 {
+  margin: 0;
+
+  color: #f7f5ee;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+.reading-progress-header span {
+  color: #d7cba9;
+
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.reading-progress-track {
+  width: 100%;
+  height: 8px;
+
+  overflow: hidden;
+
+  background: rgba(255, 255, 255, 0.13);
+
+  border-radius: 999px;
+}
+
+.reading-progress-fill {
+  height: 100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      #65734b,
+      #a5b583
+    );
+
+  border-radius: 999px;
+
+  transition: width 0.4s ease;
+}
+
+.reading-progress-pages {
+  margin: 0.65rem 0 0;
+
+  color: rgba(247, 245, 238, 0.7);
+
+  font-family: Arial, sans-serif;
+  font-size: 0.85rem;
+}
+
+/* ========================================
+   Book Actions
+   ======================================== */
+
+.book-actions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+
+  gap: 12px;
+
+  margin-top: 2rem;
+}
+
+.book-actions button {
+  width: 110px;
+  height: 44px;
+
+  margin: 0;
+  padding: 0;
+
+  box-sizing: border-box;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 8px;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 0.95rem;
+
+  line-height: 1;
+  text-align: center;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+/* ========================================
+   Read Button
+   ======================================== */
+
+.read-button {
+  color: #dce4e8;
+
+  background: #34495a;
+
+  border: 1px solid #40586a;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.read-button:hover {
+  background: #2d414f;
+
+  border-color: #526b7a;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 5px 12px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* ========================================
+   Edit Button
+   ======================================== */
+
+.edit-button {
+  color: #dfe5d5;
+
+  background: #465238;
+
+  border: 1px solid #586648;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.edit-button:hover {
+  background: #3b462f;
+
+  border-color: #697956;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 5px 12px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* ========================================
+   Delete Button
+   ======================================== */
+
+.delete-button {
+  color: #eadbd4;
+
+  background: #60443d;
+
+  border: 1px solid #705048;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+.delete-button:hover {
+  background: #523a35;
+
+  border-color: #805a50;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 5px 12px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+/* ========================================
+   Tablet
+   ======================================== */
+
+@media (max-width: 900px) {
+  .book-details {
+    padding: 2.5rem 2rem;
+  }
+
+  .details-content {
+    grid-template-columns:
+      280px
+      minmax(0, 1fr);
+
+    gap: 2.5rem;
+
+    padding: 1.75rem;
+  }
+
+  .details-cover-container {
+    max-width: 280px;
+  }
+
+  .details-info h1 {
+    font-size: 2.7rem;
+  }
+}
+
+
+/* ========================================
+   Fantasy Loading Screen
+   ======================================== */
+
+.loading-screen {
+  min-height: 100vh;
+  width: 100%;
+
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
+
+  background-image:
+    linear-gradient(
+      rgba(19, 24, 17, 0.68),
+      rgba(19, 24, 17, 0.86)
+    ),
+    var(--background-image);
+
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
+  color: #f7f5ee;
+
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+/* Ambient light */
+
+.loading-screen::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  z-index: -1;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(214, 201, 149, 0.14),
+      transparent 38%
+    );
+}
+
+/* Loading content */
+
+.loading-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+
+  padding: 3rem;
+}
+
+/* Floating book */
+
+.loading-book {
+  width: 82px;
+  height: 82px;
+
+  margin-bottom: 1.5rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(25, 31, 22, 0.55);
+
+  border: 1px solid rgba(214, 201, 149, 0.25);
+
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 30px rgba(214, 201, 149, 0.08),
+    0 15px 35px rgba(0, 0, 0, 0.35);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  animation: floatingBook 3s ease-in-out infinite;
+}
+
+.loading-book span {
+  font-size: 2.5rem;
+
+  filter:
+    drop-shadow(
+      0 0 8px rgba(214, 201, 149, 0.3)
+    );
+}
+
+/* Small fantasy label */
+
+.loading-eyebrow {
+  margin: 0 0 0.7rem;
+
+  color: #d7cba9;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 0.75rem;
+  font-weight: 600;
+
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+
+  opacity: 0.85;
+}
+
+/* Main loading title */
+
+.loading-content h1 {
+  margin: 0;
+
+  color: #f7f5ee;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: clamp(2rem, 5vw, 3rem);
+
+  font-weight: normal;
+
+  letter-spacing: 0.01em;
+}
+
+/* Loading description */
+
+.loading-message {
+  margin: 0.9rem 0 0;
+
+  color: rgba(247, 245, 238, 0.62);
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 1rem;
+
+  font-style: italic;
+}
+
+/* Magical loading symbols */
+
+.loading-dots {
+  display: flex;
+  align-items: center;
+
+  gap: 0.65rem;
+
+  margin-top: 1.5rem;
+
+  color: #d7cba9;
+
+  font-size: 0.75rem;
+}
+
+.loading-dots span {
+  opacity: 0.25;
+
+  animation: loadingStar 1.5s ease-in-out infinite;
+}
+
+.loading-dots span:nth-child(2) {
+  animation-delay: 0.25s;
+}
+
+.loading-dots span:nth-child(3) {
+  animation-delay: 0.5s;
+}
+
+/* ========================================
+   Loading Animations
+   ======================================== */
+
+@keyframes floatingBook {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes loadingStar {
+  0%,
+  100% {
+    opacity: 0.2;
+
+    transform: scale(0.85);
+  }
+
+  50% {
+    opacity: 1;
+
+    transform: scale(1.15);
+  }
+}
+
+/* ========================================
+   Loading — Mobile
+   ======================================== */
+
+@media (max-width: 700px) {
+  .loading-screen {
+    background-attachment: scroll;
+  }
+
+  .loading-content {
+    padding: 2rem;
+  }
+
+  .loading-book {
+    width: 72px;
+    height: 72px;
+  }
+
+  .loading-book span {
+    font-size: 2.2rem;
+  }
+
+  .loading-message {
+    font-size: 0.9rem;
+  }
+}
+
+/* ========================================
+   Reduced Motion
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .loading-book,
+  .loading-dots span {
+    animation: none;
+  }
+
+  .loading-dots span {
+    opacity: 0.6;
+  }
+}
+
+/* ========================================
+   Mobile
+   ======================================== */
+
+@media (max-width: 700px) {
+  .book-details {
+    padding: 2rem 1.5rem;
+
+    background-attachment: scroll;
+  }
+
+  .details-theme-selector {
+    justify-content: space-between;
+
+    gap: 0.5rem;
+  }
+
+  .details-content {
+    grid-template-columns: 1fr;
+
+    gap: 2rem;
+
+    padding: 1.5rem;
+  }
+
+  .details-cover-container {
+    width: 100%;
+    max-width: 280px;
+
+    margin: 0 auto;
+  }
+
+  .details-info {
+    padding: 0;
+
+    text-align: center;
+  }
+
+  .details-info h1 {
+    font-size: 2.4rem;
+  }
+
+  .details-info .author {
+    font-size: 1.15rem;
+  }
+
+  .status-row {
+    justify-content: center;
+  }
+
+  .notes-section {
+    text-align: left;
+  }
+
+  .reading-progress {
+    text-align: left;
+  }
+
+  .book-actions {
+    justify-content: center;
+
+    flex-wrap: wrap;
+  }
+}
+
+/* ========================================
+   Small Phones
+   ======================================== */
+
+@media (max-width: 450px) {
+  .book-details {
+    padding: 1.5rem 1rem;
+  }
+
+  .details-content {
+    padding: 1rem;
+  }
+
+  .details-cover-container {
+    max-width: 240px;
+  }
+
+  .details-info h1 {
+    font-size: 2rem;
+  }
+
+  .details-theme-label {
+    font-size: 0.75rem;
+  }
+
+  .details-theme-button {
+    width: 32px;
+    height: 32px;
+  }
+
+  .book-actions {
+    flex-direction: column;
+  }
+
+  .book-actions button {
+    width: 100%;
+  }
+}
+
+/* ========================================
+   Accessibility
+   ======================================== */
+
+.back-button:focus-visible,
+.details-theme-button:focus-visible,
+.book-actions button:focus-visible {
+  outline: 2px solid #d7cba9;
+  outline-offset: 3px;
+}
+

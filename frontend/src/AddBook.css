@@ -1,46 +1,281 @@
-/* Add Book Page */
+
+/* ========================================
+   Add Book Page
+======================================== */
 
 .add-book {
   min-height: 100vh;
-  padding: 4rem;
-  background: #e7e6df;
+  padding: 4rem 3rem 5rem;
+  background:
+    radial-gradient(circle at top left, rgba(101, 115, 75, 0.08), transparent 35%),
+    #e7e6df;
   color: #292d28;
 }
 
+
+/* ========================================
+   Header
+======================================== */
+
 .books-header {
-  max-width: 900px;
-  margin: 0 auto 3rem;
+  max-width: 1100px;
+  margin: 0 auto 2.5rem;
+}
+
+.books-header .eyebrow {
+  margin-bottom: 0.4rem;
+  color: #65734b;
+  font-family: Georgia, serif;
+  font-size: 0.9rem;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .books-header h1 {
   margin: 0;
   color: #30372b;
   font-family: Georgia, serif;
-  font-size: 3rem;
+  font-size: 3.2rem;
+  line-height: 1.1;
 }
 
 .subtitle {
+  margin-top: 0.7rem;
   color: #60645c;
   font-size: 1.05rem;
 }
 
-/* Form */
+
+/* ========================================
+   Google Books Search
+======================================== */
+
+.book-search {
+  max-width: 1100px;
+  margin: 0 auto 2.5rem;
+  padding: 2rem;
+  background: rgba(242, 241, 235, 0.95);
+  border: 2px solid #9a8b72;
+  border-radius: 18px;
+  box-shadow:
+    0 12px 30px rgba(48, 43, 34, 0.10),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.book-search label {
+  display: block;
+  margin-bottom: 0.8rem;
+  color: #3f4d32;
+  font-family: Georgia, serif;
+  font-size: 1.05rem;
+  font-weight: bold;
+}
+
+
+/* ========================================
+   Search Bar
+======================================== */
+
+.search-box {
+  display: flex;
+  gap: 0.7rem;
+}
+
+.search-box input {
+  flex: 1;
+  min-width: 0;
+  padding: 1rem 1.2rem;
+  background: #e8eadf;
+  color: #292d28;
+  border: 2px solid #b1a58f;
+  border-radius: 10px;
+  font-family: Georgia, serif;
+  font-size: 1rem;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.search-box input::placeholder {
+  color: #85877f;
+}
+
+.search-box input:focus {
+  outline: none;
+  background: #f0f1e9;
+  border-color: #65734b;
+  box-shadow: 0 0 0 4px rgba(101, 115, 75, 0.12);
+}
+
+.search-box button {
+  padding: 0 1.5rem;
+  color: #f7f5ee;
+  background: #65734b;
+  border: 2px solid #514333;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: Georgia, serif;
+  font-size: 0.95rem;
+  font-weight: bold;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.search-box button:hover {
+  background: #53613d;
+  transform: translateY(-1px);
+  box-shadow: 0 5px 12px rgba(48, 43, 34, 0.15);
+}
+
+.search-box button:active {
+  transform: translateY(0);
+}
+
+
+/* ========================================
+   Loading / Search Message
+======================================== */
+
+.book-search > p {
+  margin: 1rem 0 0;
+  color: #60645c;
+  font-family: Georgia, serif;
+  font-size: 0.9rem;
+}
+
+
+/* ========================================
+   Search Results
+======================================== */
+
+.search-results {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 1.4rem;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid #c5bca9;
+}
+
+
+/* ========================================
+   Book Card
+======================================== */
+
+.book-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 0.9rem;
+  background: #f0f0e9;
+  border: 1px solid #b1a58f;
+  border-radius: 12px;
+  box-shadow: 0 6px 14px rgba(48, 43, 34, 0.08);
+  overflow: hidden;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.book-card:hover {
+  transform: translateY(-6px);
+  border-color: #65734b;
+  box-shadow: 0 14px 25px rgba(48, 43, 34, 0.16);
+}
+
+
+/* ========================================
+   Book Cover
+======================================== */
+
+.book-card img {
+  display: block;
+  width: 100%;
+  height: 235px;
+  object-fit: cover;
+  border-radius: 7px;
+  background: #d7d5cc;
+  box-shadow: 0 5px 10px rgba(48, 43, 34, 0.15);
+}
+
+
+/* ========================================
+   Book Information
+======================================== */
+
+.book-card h3 {
+  margin: 1rem 0 0.35rem;
+  color: #30372b;
+  font-family: Georgia, serif;
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+.book-card p {
+  min-height: 2.4rem;
+  margin: 0 0 1rem;
+  color: #686b63;
+  font-size: 0.84rem;
+  line-height: 1.4;
+}
+
+
+/* ========================================
+   Select Button
+======================================== */
+
+.book-card button {
+  width: 100%;
+  margin-top: auto;
+  padding: 0.65rem 0.8rem;
+  color: #f7f5ee;
+  background: #65734b;
+  border: 1px solid #514333;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: Georgia, serif;
+  font-size: 0.85rem;
+  font-weight: bold;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.book-card button:hover {
+  background: #53613d;
+  transform: translateY(-1px);
+}
+
+
+/* ========================================
+   Manual Add Form
+======================================== */
 
 .book-form {
-  max-width: 900px;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 2.5rem;
-  background: #f2f1eb;
-  border: 3px solid #514333;
-  border-radius: 14px;
-  box-shadow: 0 8px 20px rgba(48, 43, 34, 0.15);
+  background: rgba(242, 241, 235, 0.95);
+  border: 2px solid #9a8b72;
+  border-radius: 18px;
+  box-shadow:
+    0 12px 30px rgba(48, 43, 34, 0.10),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
 
   display: flex;
   flex-direction: column;
   gap: 0.7rem;
 }
 
-/* Labels */
+
+/* ========================================
+   Form Labels
+======================================== */
 
 .book-form label {
   margin-top: 0.8rem;
@@ -50,106 +285,271 @@
   font-weight: bold;
 }
 
-/* Text fields */
+
+/* ========================================
+   Text Fields
+======================================== */
 
 .book-form input[type="text"],
 .book-form select,
 .book-form textarea {
   padding: 0.9rem 1rem;
-
   background: #e8eadf;
   color: #292d28;
-
-  border: 2px solid #9a8b72;
-  border-radius: 8px;
-
+  border: 2px solid #b1a58f;
+  border-radius: 9px;
   font-family: Georgia, serif;
   font-size: 1rem;
-
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
 }
 
-/* Notes */
+.book-form input[type="text"]:focus,
+.book-form select:focus,
+.book-form textarea:focus {
+  outline: none;
+  background: #f0f1e9;
+  border-color: #65734b;
+  box-shadow: 0 0 0 4px rgba(101, 115, 75, 0.12);
+}
+
+
+/* ========================================
+   Notes
+======================================== */
 
 .book-form textarea {
   min-height: 140px;
   resize: vertical;
 }
 
-/* When you click inside a field */
 
-.book-form input[type="text"]:focus,
-.book-form select:focus,
-.book-form textarea:focus {
-  outline: none;
-  border-color: #65734b;
-  box-shadow: 0 0 0 3px rgba(101, 115, 75, 0.15);
-}
-
-/* File upload */
+/* ========================================
+   File Upload
+======================================== */
 
 .book-form input[type="file"] {
   padding: 0.7rem;
-
   background: #e8eadf;
   color: #55594f;
-
-  border: 2px dashed #9a8b72;
-  border-radius: 8px;
-
+  border: 2px dashed #b1a58f;
+  border-radius: 9px;
   font-family: Georgia, serif;
   cursor: pointer;
+  transition: border-color 0.2s ease;
 }
-
-/* File upload hover */
 
 .book-form input[type="file"]:hover {
   border-color: #65734b;
 }
 
-.back-button {
-  max-width: 900px;
-  margin: 1rem auto 0;
-}
 
-.back-button button{
-padding: 0.8rem 1.4rem;
-
-  color: #f2f1eb;
-  background: #65734b;
-
-  border: 2px solid #514333;
-  border-radius: 8px;
-
-  cursor: pointer;
-  font-size: 0.95rem;
-
-}
-
-.back-button button:hover {
-  background: #53613d;
-}
+/* ========================================
+   Add Button
+======================================== */
 
 .add-button {
   display: flex;
   justify-content: flex-end;
-  margin-top: 1rem;
+  margin-top: 1.2rem;
 }
 
-.add-button button{
-padding: 0.8rem 1.4rem;
-
-  color: #f2f1eb;
+.add-button button {
+  padding: 0.85rem 1.6rem;
+  color: #f7f5ee;
   background: #65734b;
-
   border: 2px solid #514333;
-  border-radius: 8px;
-
+  border-radius: 9px;
   cursor: pointer;
+  font-family: Georgia, serif;
   font-size: 0.95rem;
-
+  font-weight: bold;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .add-button button:hover {
   background: #53613d;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(48, 43, 34, 0.15);
+}
+
+
+/* ========================================
+   Back Button
+======================================== */
+
+.add-book-back {
+  margin-top: 1rem;
+}
+
+.add-book-back-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 110px;
+  height: 44px;
+  box-sizing: border-box;
+
+  padding: 0;
+  margin: 0;
+
+  color: #f7f5ee;
+  background: #65734b;
+
+  border: 2px solid #514333;
+  border-radius: 9px;
+
+  font-family: Georgia, serif;
+  font-size: 0.9rem;
+  line-height: 1;
+  text-decoration: none;
+
+  cursor: pointer;
+}
+
+.add-book-back-link:hover {
+  background: #53613d;
+}
+
+
+/* ========================================
+   Responsive
+======================================== */
+
+@media (max-width: 800px) {
+  .add-book {
+    padding: 2.5rem 1.5rem 4rem;
+  }
+
+  .books-header h1 {
+    font-size: 2.5rem;
+  }
+
+  .search-box {
+    flex-direction: column;
+  }
+
+  .search-box button {
+    padding: 0.85rem 1rem;
+  }
+
+  .book-form {
+    padding: 1.5rem;
+  }
+}
+
+
+@media (max-width: 500px) {
+  .add-book {
+    padding: 2rem 1rem 3rem;
+  }
+
+  .books-header h1 {
+    font-size: 2.2rem;
+  }
+
+  .book-search {
+    padding: 1.2rem;
+  }
+
+  .search-results {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+  }
+
+  .book-card {
+    padding: 0.65rem;
+  }
+
+  .book-card img {
+    height: 190px;
+  }
+
+  .book-card h3 {
+    font-size: 0.9rem;
+  }
+
+  .book-card p {
+    font-size: 0.78rem;
+  }
+}
+
+
+/* Success Message */
+
+.success-message {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+
+  padding: 1rem 1.5rem;
+
+  color: #f7f5ee;
+  background: #53613d;
+
+  border: 2px solid #3f4d32;
+  border-radius: 12px;
+
+  font-family: Georgia, serif;
+  font-size: 0.95rem;
+
+  box-shadow: 0 8px 25px rgba(48, 43, 34, 0.2);
+
+  animation: successFade 3s ease forwards;
+}
+
+.success-message span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 24px;
+  height: 24px;
+
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+
+  font-weight: bold;
+}
+
+@keyframes successFade {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  10% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  75% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+@media (max-width: 500px) {
+  .success-message {
+    top: 1rem;
+    right: 1rem;
+    left: 1rem;
+    justify-content: center;
+  }
 }

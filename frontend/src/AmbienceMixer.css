@@ -1,0 +1,492 @@
+
+/* ========================================
+   Ambience Mixer
+======================================== */
+
+.ambience-mixer {
+  position: fixed;
+  right: 28px;
+  bottom: 95px;
+  z-index: 100;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* ========================================
+   Floating Sound Button
+======================================== */
+
+.ambience-toggle {
+  width: 52px;
+  height: 52px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 50%;
+
+  background: rgba(24, 30, 22, 0.72);
+  color: #f4f1e8;
+
+  font-size: 21px;
+
+  cursor: pointer;
+
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.ambience-toggle:hover {
+  transform: translateY(-3px);
+
+  background: rgba(48, 59, 41, 0.86);
+
+  border-color: rgba(255, 255, 255, 0.24);
+}
+
+
+/* ========================================
+   Glass Panel
+======================================== */
+
+.ambience-panel {
+  width: 350px;
+
+  padding: 22px;
+
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(40, 48, 35, 0.72),
+      rgba(19, 24, 17, 0.82)
+    );
+
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+
+  box-shadow:
+    0 20px 55px rgba(0, 0, 0, 0.42),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07);
+
+  color: #f5f2e9;
+
+  animation: ambience-panel-in 0.28s ease;
+}
+
+
+/* ========================================
+   Panel Entrance
+======================================== */
+
+@keyframes ambience-panel-in {
+  from {
+    opacity: 0;
+    transform: translateX(18px) translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
+  }
+}
+
+
+/* ========================================
+   Header
+======================================== */
+
+.ambience-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  margin-bottom: 24px;
+}
+
+.ambience-eyebrow {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #c9a86a;
+
+  font-size: 11px;
+  font-weight: normal;
+
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.ambience-header h2 {
+  margin: 0;
+
+  color: #f4f1e8;
+
+  font-size: 25px;
+  font-weight: normal;
+}
+
+
+/* ========================================
+   Close Button
+======================================== */
+
+.ambience-close {
+  width: 32px;
+  height: 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.045);
+
+  color: #d8d4c9;
+
+  font-size: 20px;
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.ambience-close:hover {
+  background: rgba(255, 255, 255, 0.10);
+
+  transform: rotate(90deg);
+}
+
+
+/* ========================================
+   Sound Grid
+======================================== */
+
+.ambience-sounds {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 22px 14px;
+}
+
+.sound-control {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 9px;
+
+  color: #d6d2c8;
+
+  font-size: 13px;
+}
+
+
+/* ========================================
+   Sound Dial
+======================================== */
+
+.sound-dial {
+  --volume-angle: 252deg;
+
+  user-select: none;
+  -webkit-user-select: none;
+
+  width: 72px;
+  height: 72px;
+
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background:
+    conic-gradient(
+      from -90deg,
+      #b99a62 0deg,
+      #b99a62 var(--volume-angle),
+      rgba(255, 255, 255, 0.10) var(--volume-angle),
+      rgba(255, 255, 255, 0.10) 360deg
+    );
+
+  cursor: grab;
+
+  touch-action: none;
+
+  box-shadow:
+    0 6px 20px rgba(0, 0, 0, 0.25);
+
+  transition:
+    filter 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.sound-dial:active {
+  cursor: grabbing;
+
+  filter: brightness(1.12);
+
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.35),
+    0 0 18px rgba(185, 154, 98, 0.12);
+}
+
+
+/* ========================================
+   Icon Circle
+======================================== */
+
+.sound-dial-inner {
+  width: 59px;
+  height: 59px;
+
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  user-select: none;
+  -webkit-user-select: none;
+  -webit-user-drag: none;
+
+  background:
+    rgba(20, 25, 18, 0.96);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  overflow: hidden;
+}
+
+.sound-dial-inner img {
+  width: 39px;
+  height: 39px;
+
+  object-fit: contain;
+
+  filter:
+    drop-shadow(
+      0 2px 4px rgba(0, 0, 0, 0.35)
+    );
+
+  pointer-events: none;
+}
+
+.sound-volume {
+  position: absolute;
+
+  bottom: 5px;
+
+  color: #d8b873;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 10px;
+  font-weight: normal;
+
+  opacity: 0.9;
+
+  pointer-events: none;
+}
+
+
+/* ========================================
+   Footer
+======================================== */
+
+.ambience-footer {
+  margin-top: 25px;
+  padding-top: 18px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+
+/* ========================================
+   Master Volume
+======================================== */
+
+.master-volume {
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.master-volume-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.master-volume-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 13px;
+}
+
+.master-volume-label span:first-child {
+  font-size: 15px;
+}
+
+.master-volume strong {
+  color: #e8c98f;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.master-volume-slider {
+  width: 100%;
+  height: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  outline: none;
+  cursor: pointer;
+}
+
+/* Chrome / Edge */
+.master-volume-slider::-webkit-slider-thumb {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #e8c98f;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+  cursor: pointer;
+}
+
+/* Firefox */
+.master-volume-slider::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #e8c98f;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+  cursor: pointer;
+}
+
+.master-volume-slider:focus-visible {
+  outline: 2px solid rgba(232, 201, 143, 0.7);
+  outline-offset: 4px;
+}
+
+
+/* ========================================
+   Play Button
+======================================== */
+
+.ambience-play {
+  width: 100%;
+
+  margin-top: 14px;
+
+  padding: 11px 14px;
+
+  border: 1px solid rgba(185, 154, 98, 0.35);
+  border-radius: 10px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(74, 91, 60, 0.78),
+      rgba(48, 61, 40, 0.78)
+    );
+
+  color: #ece9df;
+
+  font-family: inherit;
+  font-size: 14px;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.ambience-play:hover {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(88, 106, 70, 0.88),
+      rgba(57, 72, 47, 0.88)
+    );
+
+  border-color: rgba(201, 168, 106, 0.55);
+
+  transform: translateY(-1px);
+}
+
+
+/* ========================================
+   Mobile
+======================================== */
+
+@media (max-width: 600px) {
+  .ambience-mixer {
+    right: 14px;
+    bottom: 78px;
+  }
+
+  .ambience-panel {
+    width: min(350px, calc(100vw - 28px));
+
+    padding: 18px;
+  }
+
+  .ambience-sounds {
+    gap: 18px 8px;
+  }
+
+  .sound-dial {
+    width: 64px;
+    height: 64px;
+  }
+
+  .sound-dial-inner {
+    width: 52px;
+    height: 52px;
+  }
+
+  .sound-dial-inner img {
+    width: 34px;
+    height: 34px;
+  }
+}
+

@@ -1,0 +1,671 @@
+/* =========================================
+   LANDING PAGE
+   ========================================= */
+
+.landing {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+
+  background-image:
+    linear-gradient(
+      rgba(19, 24, 17, 0.55),
+      rgba(19, 24, 17, 0.72)
+    ),
+    var(--background-image);
+
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
+  color: #f7f5ee;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* =========================================
+   DARK OVERLAY
+   ========================================= */
+
+.landing::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at 50% 35%,
+      rgba(255, 214, 145, 0.10),
+      transparent 40%
+    );
+
+  pointer-events: none;
+  z-index: 0;
+}
+
+
+/* =========================================
+   HEADER
+   ========================================= */
+
+.landing-header {
+  position: relative;
+  z-index: 5;
+
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 1.5rem 3rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+  background: rgba(25, 31, 22, 0.30);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+
+/* =========================================
+   BRAND
+   ========================================= */
+
+.landing-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  font-size: 1.35rem;
+  font-weight: bold;
+
+  letter-spacing: 0.03em;
+
+  color: #f7f5ee;
+}
+
+.landing-brand-icon {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
+  background: rgba(255, 255, 255, 0.10);
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  box-shadow:
+    0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+
+/* =========================================
+   HEADER NAVIGATION
+   ========================================= */
+
+.landing-navigation {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.login-link,
+.signup-link {
+  text-decoration: none;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.login-link {
+  padding: 0.65rem 1.1rem;
+
+  color: #f7f5ee;
+}
+
+.login-link:hover {
+  color: #ffffff;
+}
+
+.signup-link {
+  padding: 0.7rem 1.2rem;
+
+  color: #f7f5ee;
+
+  background: rgba(101, 115, 75, 0.85);
+
+  border: 1px solid rgba(255, 255, 255, 0.16);
+
+  border-radius: 9px;
+
+  box-shadow:
+    0 5px 18px rgba(0, 0, 0, 0.20);
+}
+
+.signup-link:hover {
+  background: #65734b;
+  transform: translateY(-2px);
+}
+
+
+/* =========================================
+   MAIN CONTENT
+   ========================================= */
+
+.landing-content {
+  position: relative;
+  z-index: 2;
+
+  width: min(1100px, calc(100% - 3rem));
+
+  margin: 0 auto;
+
+  padding: 5rem 0 3rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+/* =========================================
+   HERO
+   ========================================= */
+
+.hero {
+  max-width: 800px;
+
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-eyebrow {
+  margin: 0 0 1rem;
+
+  color: #d7cba9;
+
+  font-size: 0.85rem;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  margin: 0;
+
+  font-size: clamp(3rem, 7vw, 5.5rem);
+
+  line-height: 0.98;
+
+  font-weight: normal;
+
+  letter-spacing: -0.04em;
+
+  text-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.45);
+}
+
+.hero h1 span {
+  display: block;
+
+  color: #d6c995;
+
+  font-style: italic;
+}
+
+.hero-description {
+  max-width: 650px;
+
+  margin: 1.7rem 0 0;
+
+  color: rgba(247, 245, 238, 0.82);
+
+  font-size: 1.05rem;
+
+  line-height: 1.8;
+}
+
+
+/* =========================================
+   HERO BUTTONS
+   ========================================= */
+
+.hero-buttons {
+  margin-top: 2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 1rem;
+
+  flex-wrap: wrap;
+}
+
+.hero-button {
+  min-height: 50px;
+
+  padding: 0 1.4rem;
+
+  box-sizing: border-box;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 0.6rem;
+
+  border-radius: 10px;
+
+  text-decoration: none;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 0.95rem;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.hero-button:hover {
+  transform: translateY(-3px);
+}
+
+.hero-button.primary {
+  color: #f7f5ee;
+
+  background: #65734b;
+
+  border: 2px solid #7e8e60;
+
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+.hero-button.primary:hover {
+  background: #748359;
+}
+
+.hero-button.secondary {
+  color: #f7f5ee;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  border: 1px solid rgba(255, 255, 255, 0.20);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.hero-button.secondary:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+
+/* =========================================
+   FEATURE CARDS
+   ========================================= */
+
+.features {
+  width: 100%;
+
+  margin-top: 4.5rem;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 1rem;
+}
+
+.feature-card {
+  min-height: 145px;
+
+  box-sizing: border-box;
+
+  padding: 1.4rem;
+
+  display: flex;
+  align-items: flex-start;
+
+  gap: 1rem;
+
+  background: rgba(30, 36, 27, 0.48);
+
+  border: 1px solid rgba(255, 255, 255, 0.13);
+
+  border-radius: 14px;
+
+  box-shadow:
+    0 10px 35px rgba(0, 0, 0, 0.25);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+
+  background: rgba(40, 47, 35, 0.58);
+}
+
+.feature-icon {
+  width: 44px;
+  height: 44px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 11px;
+
+  background: rgba(101, 115, 75, 0.45);
+
+  border: 1px solid rgba(255, 255, 255, 0.10);
+
+  font-size: 1.15rem;
+}
+
+.feature-card h3 {
+  margin: 0 0 0.45rem;
+
+  font-size: 1rem;
+
+  font-weight: normal;
+}
+
+.feature-card p {
+  margin: 0;
+
+  color: rgba(247, 245, 238, 0.65);
+
+  font-size: 0.84rem;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================
+   THEME SELECTOR
+   ========================================= */
+
+.landing-themes {
+  margin-top: 2.5rem;
+
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  color: rgba(247, 245, 238, 0.65);
+
+  font-size: 0.8rem;
+}
+
+.landing-themes p {
+  margin: 0;
+}
+
+.landing-theme-buttons {
+  display: flex;
+  gap: 0.45rem;
+}
+
+.landing-theme-button {
+  width: 34px;
+  height: 34px;
+
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  border-radius: 50%;
+
+  color: #f7f5ee;
+
+  background: rgba(255, 255, 255, 0.07);
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.landing-theme-button:hover {
+  transform: translateY(-2px);
+
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.landing-theme-button.selected {
+  background: rgba(101, 115, 75, 0.75);
+
+  border-color: rgba(214, 201, 149, 0.75);
+
+  box-shadow:
+    0 0 0 2px rgba(214, 201, 149, 0.12);
+}
+
+
+/* =========================================
+   FOOTER
+   ========================================= */
+
+.landing-footer {
+  position: relative;
+  z-index: 2;
+
+  margin-top: auto;
+
+  padding: 1.5rem;
+
+  text-align: center;
+
+  color: rgba(247, 245, 238, 0.45);
+
+  font-size: 0.75rem;
+
+  letter-spacing: 0.04em;
+}
+
+.landing-footer span {
+  margin-right: 0.35rem;
+}
+
+
+/* =========================================
+   PARTICLES
+   ========================================= */
+
+.landing .particle-container {
+  position: absolute;
+  inset: 0;
+
+  overflow: hidden;
+
+  pointer-events: none;
+
+  z-index: 1;
+}
+
+.landing .particle {
+  position: absolute;
+
+  opacity: 0.45;
+
+  animation: floatParticle 12s linear infinite;
+}
+
+.landing .particle-1 {
+  left: 8%;
+  top: 15%;
+  animation-delay: 0s;
+}
+
+.landing .particle-2 {
+  left: 20%;
+  top: 60%;
+  animation-delay: 2s;
+}
+
+.landing .particle-3 {
+  left: 35%;
+  top: 20%;
+  animation-delay: 4s;
+}
+
+.landing .particle-4 {
+  left: 50%;
+  top: 70%;
+  animation-delay: 1s;
+}
+
+.landing .particle-5 {
+  left: 65%;
+  top: 25%;
+  animation-delay: 5s;
+}
+
+.landing .particle-6 {
+  left: 78%;
+  top: 55%;
+  animation-delay: 3s;
+}
+
+.landing .particle-7 {
+  left: 90%;
+  top: 15%;
+  animation-delay: 6s;
+}
+
+.landing .particle-8 {
+  left: 15%;
+  top: 85%;
+  animation-delay: 7s;
+}
+
+.landing .particle-9 {
+  left: 72%;
+  top: 80%;
+  animation-delay: 4s;
+}
+
+.landing .particle-10 {
+  left: 45%;
+  top: 45%;
+  animation-delay: 8s;
+}
+
+@keyframes floatParticle {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-35px) rotate(12deg);
+  }
+
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+
+@media (max-width: 800px) {
+  .landing-header {
+    padding: 1.2rem 1.5rem;
+  }
+
+  .landing-content {
+    padding-top: 3.5rem;
+  }
+
+  .features {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    font-size: 3.4rem;
+  }
+}
+
+
+@media (max-width: 550px) {
+  .landing-header {
+    padding: 1rem;
+  }
+
+  .landing-brand {
+    font-size: 1.1rem;
+  }
+
+  .landing-brand-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .login-link {
+    display: none;
+  }
+
+  .landing-content {
+    width: calc(100% - 2rem);
+    padding-top: 3rem;
+  }
+
+  .hero h1 {
+    font-size: 2.8rem;
+  }
+
+  .hero-description {
+    font-size: 0.95rem;
+  }
+
+  .hero-buttons {
+    width: 100%;
+  }
+
+  .hero-button {
+    width: 100%;
+  }
+
+  .landing-themes {
+    flex-direction: column;
+  }
+}

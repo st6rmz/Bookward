@@ -1,0 +1,618 @@
+/* ========================================
+   Edit Book Page
+   ======================================== */
+
+.edit-book {
+  min-height: 100vh;
+
+  padding: 4rem 3rem;
+
+  box-sizing: border-box;
+
+  background: #e7e6df;
+
+  color: #292d28;
+
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.books-header {
+  max-width: 900px;
+
+  margin: 0 auto 2.5rem;
+}
+
+.books-header .eyebrow {
+  margin: 0 0 0.7rem;
+
+  color: #65734b;
+
+  font-family: Arial, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+}
+
+.books-header h1 {
+  margin: 0;
+
+  color: #30372b;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: clamp(2.4rem, 4vw, 3.4rem);
+
+  line-height: 1.1;
+}
+
+.books-header .subtitle {
+  margin: 1rem 0 0;
+
+  color: #60645c;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 1.1rem;
+
+  line-height: 1.6;
+}
+
+/* ========================================
+   Form
+   ======================================== */
+
+.book-form {
+  max-width: 900px;
+
+  margin: 0 auto;
+
+  padding: 2.5rem;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 0.7rem;
+
+  background: #f2f1eb;
+
+  border: 1px solid #c9c5b9;
+
+  border-radius: 14px;
+
+  box-shadow:
+    0 15px 35px rgba(48, 43, 34, 0.08);
+}
+
+.book-form label {
+  margin-top: 0.8rem;
+
+  color: #3f4d32;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.book-form input,
+.book-form select,
+.book-form textarea {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 0.85rem 1rem;
+
+  color: #30372b;
+
+  background: #ffffff;
+
+  border: 1px solid #c9c5b9;
+
+  border-radius: 8px;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 0.95rem;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.book-form input:focus,
+.book-form select:focus,
+.book-form textarea:focus {
+  border-color: #65734b;
+
+  box-shadow:
+    0 0 0 3px rgba(101, 115, 75, 0.12);
+}
+
+.book-form textarea {
+  min-height: 140px;
+
+  resize: vertical;
+
+  line-height: 1.6;
+}
+
+/* ========================================
+   Current Book Cover
+   ======================================== */
+
+.current-book-cover {
+  width: 180px;
+  min-height: 240px;
+
+  margin-top: 0.4rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  background: #d8d1c2;
+
+  border: 1px solid #c9c5b9;
+
+  border-radius: 10px;
+}
+
+.current-book-cover img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: contain;
+}
+
+.current-book-cover p {
+  padding: 1rem;
+
+  color: #6b6d66;
+
+  text-align: center;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 0.9rem;
+}
+
+/* ========================================
+   Image Note
+   ======================================== */
+
+.edit-image-note {
+  margin: 0.2rem 0 0;
+
+  color: #73766e;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 0.85rem;
+}
+
+/* ========================================
+   Form Action Layout (Side-by-Side)
+   ======================================== */
+
+.form-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Snaps buttons clean to the bottom-right corner */
+  gap: 1rem;
+  margin-top: 1.8rem;
+}
+
+/* Base structural shapes for BOTH elements */
+.form-actions .save-btn,
+.form-actions .cancel-btn {
+  padding: 0.8rem 1.6rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+
+/* Primary Action: Solid Olive Green */
+.form-actions .save-btn {
+  color: #f2f1eb;
+  background: #65734b;
+  border: 1px solid #65734b;
+}
+
+.form-actions .save-btn:hover {
+  background: #4f5d3b;
+  border-color: #4f5d3b;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgba(48, 43, 34, 0.15);
+}
+
+/* Secondary Action: Matte Green Outline */
+.form-actions .cancel-btn {
+  color: #65734b;
+  background: transparent;
+  border: 1px solid #c9c5b9;
+}
+
+.form-actions .cancel-btn:hover {
+  color: #f2f1eb;
+  background: #65734b;
+  border-color: #65734b;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgba(48, 43, 34, 0.15);
+}
+
+/* Simple mobile screen adjustments */
+@media (max-width: 480px) {
+  .form-actions {
+    flex-direction: column-reverse; /* Stacks button cleanly on tiny smartphones */
+    width: 100%;
+  }
+  
+  .form-actions .save-btn,
+  .form-actions .cancel-btn {
+    width: 100%;
+  }
+}
+
+
+/* ========================================
+   Fantasy Loading Screen
+   ======================================== */
+
+.loading-screen {
+  min-height: 100vh;
+  width: 100%;
+
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
+
+  padding: 3rem;
+
+  background-image:
+    linear-gradient(
+      rgba(19, 24, 17, 0.68),
+      rgba(19, 24, 17, 0.86)
+    ),
+    var(--background-image);
+
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
+  color: #f7f5ee;
+
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+/* ========================================
+   Ambient Glow
+   ======================================== */
+
+.loading-screen::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  z-index: -1;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(214, 201, 149, 0.14),
+      transparent 38%
+    );
+}
+
+/* ========================================
+   Loading Content
+   ======================================== */
+
+.loading-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 3rem;
+
+  text-align: center;
+}
+
+/* ========================================
+   Floating Book
+   ======================================== */
+
+.loading-book {
+  width: 82px;
+  height: 82px;
+
+  margin-bottom: 1.5rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(25, 31, 22, 0.55);
+
+  border: 1px solid rgba(214, 201, 149, 0.25);
+
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 30px rgba(214, 201, 149, 0.08),
+    0 15px 35px rgba(0, 0, 0, 0.35);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  animation:
+    floatingBook 3s ease-in-out infinite;
+}
+
+.loading-book span {
+  font-size: 2.5rem;
+
+  filter:
+    drop-shadow(
+      0 0 8px rgba(214, 201, 149, 0.3)
+    );
+}
+
+/* ========================================
+   Loading Eyebrow
+   ======================================== */
+
+.loading-eyebrow {
+  margin: 0 0 0.7rem;
+
+  color: #d7cba9;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 0.75rem;
+  font-weight: 600;
+
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+
+  opacity: 0.85;
+}
+
+/* ========================================
+   Loading Title
+   ======================================== */
+
+.loading-content h1 {
+  margin: 0;
+
+  color: #f7f5ee;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: clamp(2rem, 5vw, 3rem);
+
+  font-weight: normal;
+
+  letter-spacing: 0.01em;
+}
+
+/* ========================================
+   Loading Message
+   ======================================== */
+
+.loading-message {
+  margin: 0.9rem 0 0;
+
+  color: rgba(247, 245, 238, 0.62);
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 1rem;
+
+  font-style: italic;
+}
+
+/* ========================================
+   Magical Loading Symbols
+   ======================================== */
+
+.loading-dots {
+  display: flex;
+  align-items: center;
+
+  gap: 0.65rem;
+
+  margin-top: 1.5rem;
+
+  color: #d7cba9;
+
+  font-size: 0.75rem;
+}
+
+.loading-dots span {
+  opacity: 0.25;
+
+  animation:
+    loadingStar 1.5s ease-in-out infinite;
+}
+
+.loading-dots span:nth-child(2) {
+  animation-delay: 0.25s;
+}
+
+.loading-dots span:nth-child(3) {
+  animation-delay: 0.5s;
+}
+
+/* ========================================
+   Loading Animations
+   ======================================== */
+
+@keyframes floatingBook {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes loadingStar {
+  0%,
+  100% {
+    opacity: 0.2;
+
+    transform: scale(0.85);
+  }
+
+  50% {
+    opacity: 1;
+
+    transform: scale(1.15);
+  }
+}
+
+/* ========================================
+   Tablet
+   ======================================== */
+
+@media (max-width: 900px) {
+  .edit-book {
+    padding: 3rem 2rem;
+  }
+
+  .book-form {
+    padding: 2rem;
+  }
+}
+
+/* ========================================
+   Mobile
+   ======================================== */
+
+@media (max-width: 700px) {
+  .edit-book {
+    padding: 2rem 1.5rem;
+  }
+
+  .book-form {
+    padding: 1.5rem;
+  }
+
+  .current-book-cover {
+    width: 160px;
+    min-height: 220px;
+  }
+
+  .loading-screen {
+    padding: 1.5rem;
+
+    background-attachment: scroll;
+  }
+
+  .loading-content {
+    padding: 2rem;
+  }
+
+  .loading-book {
+    width: 72px;
+    height: 72px;
+  }
+
+  .loading-book span {
+    font-size: 2.2rem;
+  }
+
+  .loading-message {
+    font-size: 0.9rem;
+  }
+}
+
+/* ========================================
+   Small Phones
+   ======================================== */
+
+@media (max-width: 450px) {
+  .edit-book {
+    padding: 1.5rem 1rem;
+  }
+
+  .book-form {
+    padding: 1rem;
+  }
+
+  .books-header h1 {
+    font-size: 2rem;
+  }
+
+  .current-book-cover {
+    width: 140px;
+    min-height: 190px;
+  }
+
+  .loading-content {
+    padding: 1.5rem;
+  }
+
+  .loading-content h1 {
+    font-size: 2rem;
+  }
+}
+
+/* ========================================
+   Accessibility
+   ======================================== */
+
+.book-form input:focus-visible,
+.book-form select:focus-visible,
+.book-form textarea:focus-visible,
+.edit-button button:focus-visible,
+.back-button button:focus-visible {
+  outline: 2px solid #65734b;
+
+  outline-offset: 3px;
+}
+
+/* ========================================
+   Reduced Motion
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .loading-book,
+  .loading-dots span {
+    animation: none;
+  }
+
+  .loading-dots span {
+    opacity: 0.6;
+  }
+}
