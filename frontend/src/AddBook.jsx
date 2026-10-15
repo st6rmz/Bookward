@@ -96,6 +96,8 @@ function AddBook() {
       setAddingBookIndex(null);
     }
 
+  }
+
 
   async function handleSubmit(event) {
   event.preventDefault();
@@ -261,5 +263,5 @@ function AddBook() {
     </div>
   );
 }
-}
+
 export default AddBook;
