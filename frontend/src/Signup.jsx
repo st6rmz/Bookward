@@ -18,29 +18,21 @@ function Signup() {
   event.preventDefault();
 
   const { data, error } = await supabase.auth.signUp({
-    email: email,
-    password: password,
-  });
+  email: email,
+  password: password,
+  options: {
+    data: {
+      user_name: userName.trim(),
+    },
+  },
+});
 
   if (error) {
     console.error(error);
     return;
   }
 
-  const { error: profileError } = await supabase
-    .from("profiles")
-    .insert({
-        user_id: data.user.id,
-        user_name: userName,
-    });
-
-
-    if (profileError){
-        console.error(profileError)
-        return;
-    }
-}
-
+  
 
 
 
@@ -184,6 +176,7 @@ function Signup() {
       </footer>
     </div>
   );
+}
 }
 
 export default Signup;
