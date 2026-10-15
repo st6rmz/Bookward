@@ -95,7 +95,7 @@ const currentTheme = themes[theme];
 
     try {
       const response = await fetch(
-        `http://127.0.0.1:8000/books/${id}`,
+        `https://bookward-backend.onrender.com/books/${id}`,
         {
           method: "DELETE",
           headers: {
@@ -159,7 +159,7 @@ const currentTheme = themes[theme];
 
       try {
         const response = await fetch(
-          `http://127.0.0.1:8000/books/${id}`,
+          `https://bookward-backend.onrender.com/books/${id}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,

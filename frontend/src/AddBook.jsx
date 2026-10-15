@@ -20,7 +20,7 @@ function AddBook() {
     setLoading(true);
     try {
       const response = await fetch(
-        `http://127.0.0.1:8000/books/search?q=${encodeURIComponent(search)}`
+        `https://bookward-backend.onrender.com/books/search?q=${encodeURIComponent(search)}`
       );
       const data = await response.json();
       setBooks(data);
@@ -57,7 +57,7 @@ function AddBook() {
     const token = data.session.access_token;
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/books", {
+      const response = await fetch("https://bookward-backend.onrender.com/books", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -108,7 +108,7 @@ function AddBook() {
   const token = data.session.access_token;
 
   try {
-    const response = await fetch("http://127.0.0.1:8000/books", {
+    const response = await fetch("https://bookward-backend.onrender.com/books", {
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`,
