@@ -429,6 +429,58 @@
 
 
 
+
+/* =====================================================
+   BOOK COLLECTION COUNTER
+   ===================================================== */
+
+.book-limit-counter {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-top: 1.2rem;
+  padding: 0.7rem 1rem;
+
+  color: #3f4d32;
+  background: #dfe8d4;
+
+  border: 1px solid #aebd9b;
+  border-radius: 10px;
+
+  font-family: Georgia, serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.book-limit-counter span:first-child {
+  font-size: 1.1rem;
+}
+
+/* =====================================================
+   BOOK LIMIT NOTICE
+   ===================================================== */
+
+.book-limit-notice {
+  max-width: 450px;
+
+  margin: 0.8rem 0 0;
+  padding: 0.7rem 0.9rem;
+
+  color: #654522;
+  background: #f1e4c9;
+
+  border: 1px solid #d4bd91;
+  border-radius: 8px;
+
+  font-family: Arial, sans-serif;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+
+
+
 /* =====================================================
    RESPONSIVE
    ===================================================== */

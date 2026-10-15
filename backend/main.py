@@ -40,6 +40,7 @@ key = os.getenv("SUPABASE_KEY")
 google_books_key = os.getenv("GOOGLE_BOOKS_API_KEY")
 
 supabase = create_client(url, key)
+MAX_BOOKS_PER_USER = 15  # Set the maximum number of books per user
 
 
 #Get all books from the database
@@ -211,6 +212,29 @@ async def add_book(
         )
 
     user_id = user.user.id
+
+    
+    # Count the books belonging to this user
+    book_count_response = (
+        supabase
+        .table("books")
+        .select("id")
+        .eq("user_id", user_id)
+        .execute()
+    )
+
+    current_book_count = len(book_count_response.data or [])
+
+    # Stop the user from exceeding the book limit
+    if current_book_count >= MAX_BOOKS_PER_USER:
+        raise HTTPException(
+            status_code=403,
+            detail=(
+                f"You've reached the {MAX_BOOKS_PER_USER}-book limit. "
+                "Delete a book before adding another."
+            )
+        )
+
 
 
 

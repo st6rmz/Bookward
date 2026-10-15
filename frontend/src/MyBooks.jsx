@@ -66,19 +66,37 @@ function MyBooks() {
       ? books
       : books.filter((book) => book.status === filter);
 
+  const MAX_BOOKS = 15;
+  const remainingBooks = Math.max(0, MAX_BOOKS - books.length);
+
   return (
     <div className="my-books">
 
       {/* Header */}
-      <header className="books-header">
-        <p className="eyebrow">Your Library</p>
+      
+        <header className="books-header">
+         <p className="eyebrow">Your Library</p>
 
         <h1>My Books</h1>
 
         <p className="subtitle">
-          Your collection, gathered in one quiet corner.
-        </p>
-      </header>
+         Your collection, gathered in one quiet corner.
+         </p>
+
+          <div className="book-limit-counter">
+            <span>📚</span>
+            <span>
+             {books.length} / {MAX_BOOKS} books in your collection
+           </span>
+          </div>
+
+           {remainingBooks === 0 && (
+          <p className="book-limit-notice">
+           Your library is full. Remove a book to make room for another.
+           </p>
+          )}
+         </header>
+
 
 
       {/* Success Message */}
