@@ -1,6 +1,13 @@
 /* =====================================================
    DASHBOARD
    ===================================================== */
+/* Consistent sizing across the dashboard */
+.dashboard,
+.dashboard * {
+  box-sizing: border-box;
+}
+
+
 
 .dashboard {
   --text-main: #f7f5ee;
@@ -226,14 +233,13 @@
    ===================================================== */
 
 .dashboard-content {
-  width: min(950px, calc(100% - 2rem));
-
+  flex: 1;
+  width: 100%;
+  max-width: 950px;
+  min-width: 0;
   margin: 0 auto;
-
   padding: 4rem 2rem 5rem;
-
   position: relative;
-
   z-index: 2;
 }
 
@@ -500,9 +506,7 @@
 
 .action-buttons {
   display: grid;
-
-  grid-template-columns: repeat(4, 1fr);
-
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.7rem;
 }
 
@@ -1160,72 +1164,91 @@
 }
 
 
+
 /* =====================================================
-   RESPONSIVE
+   RESPONSIVE DASHBOARD
    ===================================================== */
 
+/* Tablets and smaller desktop screens */
 @media (max-width: 1000px) {
   .sidebar {
-    width: 190px;
+    width: 220px;
+  }
+
+  .dashboard-content {
+    padding: 3rem 1.25rem 4rem;
   }
 
   .stats,
-  .action-buttons,
   .theme-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .action-buttons {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-
+/* Mobile phones */
 @media (max-width: 700px) {
   .dashboard {
     display: block;
-
     background-attachment: scroll;
   }
 
+  /* Brand on top, navigation underneath */
   .sidebar {
-    width: auto;
-
+    width: 100%;
     min-height: auto;
-
-    flex-direction: row;
-
-    align-items: center;
-
-    padding: 0.8rem;
-
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+    padding: 0.9rem 1rem;
     border-right: none;
-
     border-bottom: 1px solid var(--border);
   }
 
   .brand {
-    padding: 0;
-
-    font-size: 1.2rem;
+    justify-content: center;
+    padding: 0.2rem 0 0.4rem;
+    font-size: 1.35rem;
   }
 
   .brand-icon {
     width: 36px;
-
     height: 36px;
-
     font-size: 1.3rem;
+    flex-shrink: 0;
   }
 
   .navigation {
-    flex-direction: row;
-
-    margin-left: auto;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: 100%;
+    gap: 0.4rem;
+    margin: 0;
   }
 
   .nav-link {
-    padding: 0.6rem;
+    min-width: 0;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.25rem;
+    padding: 0.65rem 0.2rem;
+    font-size: 0.8rem;
+    text-align: center;
+    overflow-wrap: anywhere;
+    transform: none;
   }
 
   .nav-link span {
-    display: none;
+    display: block;
+    width: auto;
+    font-size: 1.1rem;
+  }
+
+  .nav-link:hover {
+    transform: none;
   }
 
   .sidebar-bottom {
@@ -1234,26 +1257,109 @@
 
   .dashboard-content {
     width: 100%;
-
-    padding: 2rem 1rem;
+    max-width: none;
+    padding: 1.5rem 1rem 2.5rem;
   }
 
-  .stats,
-  .action-buttons,
-  .theme-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-
-@media (max-width: 480px) {
-  .stats,
-  .action-buttons,
-  .theme-grid {
-    grid-template-columns: 1fr;
+  .welcome {
+    padding: 1.25rem;
+    margin-bottom: 1rem;
   }
 
   .welcome h1 {
-    font-size: 2.5rem;
+    font-size: clamp(2rem, 7vw, 2.7rem);
+    overflow-wrap: anywhere;
+  }
+
+  .library-card,
+  .actions,
+  .theme-section {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .stats,
+  .theme-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.6rem;
+  }
+
+  .action-buttons {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.6rem;
+  }
+
+  .stat {
+    min-width: 0;
+    min-height: 120px;
+    padding: 0.75rem 0.35rem;
+  }
+
+  .stat-number {
+    font-size: 2rem;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    text-align: center;
+  }
+
+  .action-button {
+    min-width: 0;
+    min-height: 56px;
+    padding: 0.65rem 0.35rem;
+    font-size: 0.85rem;
+    text-align: center;
+    overflow-wrap: anywhere;
+  }
+
+  .theme-preview {
+    height: 80px;
+  }
+
+  .theme-name {
+    padding: 0.6rem 0.25rem;
+    font-size: 0.85rem;
+    text-align: center;
+  }
+
+  .section-title h2,
+  .section-heading h2 {
+    font-size: 1.2rem;
+  }
+
+  .section-heading p {
+    line-height: 1.5;
   }
 }
+
+/* Very narrow phones */
+@media (max-width: 360px) {
+  .dashboard-content {
+    padding-right: 0.7rem;
+    padding-left: 0.7rem;
+  }
+
+  .welcome {
+    padding: 1rem;
+  }
+
+  .welcome h1 {
+    font-size: 1.9rem;
+  }
+
+  .library-card,
+  .actions,
+  .theme-section {
+    padding: 0.8rem;
+  }
+
+  .stat-number {
+    font-size: 1.8rem;
+  }
+
+  .nav-link {
+    font-size: 0.72rem;
+  }
+}
+

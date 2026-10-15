@@ -172,8 +172,9 @@ useEffect(() => {
     scale,
   });
 
-  const devicePixelRatio =
-    window.devicePixelRatio || 1;
+  const devicePixelRatio = Math.min(
+    window.devicePixelRatio || 1, 1.5
+  );
 
   canvas.width = Math.floor(
     viewport.width * devicePixelRatio
