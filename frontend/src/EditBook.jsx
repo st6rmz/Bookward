@@ -33,7 +33,7 @@ function EditBook() {
 
       try {
         const response = await fetch(
-          `http://127.0.0.1:8000/books/${id}`,
+          `https://bookward-backend.onrender.com/books/${id}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -98,7 +98,7 @@ function EditBook() {
 
     try {
       const response = await fetch(
-        `http://127.0.0.1:8000/books/${id}`,
+        `https://bookward-backend.onrender.com/books/${id}`,
         {
           method: "PUT",
           headers: {

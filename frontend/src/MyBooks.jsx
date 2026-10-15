@@ -40,7 +40,7 @@ function MyBooks() {
 
     const token = data.session.access_token;
     
-    const response = await fetch("http://127.0.0.1:8000/books", {
+    const response = await fetch("https://bookward-backend.onrender.com/books", {
       headers: {
         Authorization: `Bearer ${token}`,
       },
